@@ -1,0 +1,15 @@
+{
+  "name": "holiday",
+  "version": "1.0.0",
+  "description": "",
+  "main": "holiday.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json2yaml": "^1.1.0",
+    "xml-js": "^1.6.11"
+  }
+}
