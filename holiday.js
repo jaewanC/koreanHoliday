@@ -10,7 +10,7 @@ solMonth = process.argv[3];
 savePath = process.argv[4];
 
 if (solYear === undefined || solMonth === undefined) {
-    console.log("Input Error")
+    console.log("Input Error");
     process.exit(0);
 }
 
@@ -47,9 +47,9 @@ httpGetAsync(url, function(res) {
             dateInfo['dates'].push({
                 dateName: jsonDates[i].elements[1].elements[0].text,
                 date: jsonDates[i].elements[3].elements[0].text,
-            })
+            });
         }
     }
 
-    fs.writeFileSync(savePath + solYear + '-' + solMonth + '.yml'  , json2yaml.stringify(dateInfo), 'utf8')
+    fs.writeFileSync(savePath + solYear + '-' + solMonth + '.yml'  , json2yaml.stringify(dateInfo), 'utf8');
 })
