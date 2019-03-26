@@ -9,9 +9,18 @@ solYear = process.argv[2];
 solMonth = process.argv[3];
 savePath = process.argv[4] !== undefined ? process.argv[4] : '';
 
+// check year, month
 if (solYear === undefined || solMonth === undefined) {
     console.log("Input Error");
     process.exit(0);
+}
+if (solMonth < 0 || solMonth > 12) {
+    console.log("Input Error");
+    process.exit(0);
+}
+if (solMonth < 10) {
+    if ((solMonth + '').length === 1)
+        solMonth = '0' + solMonth;
 }
 
 var url = "http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?" +
@@ -51,5 +60,6 @@ httpGetAsync(url, function(res) {
         }
     }
 
-    fs.writeFileSync(savePath + solYear + '-' + solMonth + '.yml'  , json2yaml.stringify(dateInfo), 'utf8');
+    if (dateInfo.dates !== undefined)
+        fs.writeFileSync(savePath + solYear + '-' + solMonth + '.yml'  , json2yaml.stringify(dateInfo), 'utf8');
 })
