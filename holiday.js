@@ -7,7 +7,7 @@ var solYear, solMonth, savePath;
 
 solYear = process.argv[2];
 solMonth = process.argv[3];
-savePath = process.argv[4];
+savePath = process.argv[4] !== undefined ? process.argv[4] : '';
 
 if (solYear === undefined || solMonth === undefined) {
     console.log("Input Error");
